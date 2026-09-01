@@ -1,0 +1,82 @@
+/* ============================================================
+   DESIGN TOKENS
+   ============================================================
+   Every colour, font size, space and radius used on the site is
+   defined once here. Change a value in this file and it updates
+   everywhere. This is the fastest way to re-skin the portfolio.
+   ============================================================ */
+
+:root {
+  /* ---------- Colours ---------- */
+  --color-bg: #0b0d10;               /* page background (deep charcoal) */
+  --color-bg-soft: #0f1319;          /* slightly lifted background bands */
+  --color-surface: #14181e;          /* cards */
+  --color-surface-hover: #1a1f27;    /* cards on hover */
+  --color-border: rgba(255, 255, 255, 0.08);
+  --color-border-strong: rgba(255, 255, 255, 0.18);
+
+  --color-text: #e9edf2;             /* main text */
+  --color-text-muted: #a5aebb;       /* paragraphs, secondary text */
+  --color-text-dim: #717b89;         /* captions, meta text */
+
+  /* The single accent colour. Swap this one value to change the
+     personality of the whole site (e.g. #7dd3fc for blue). */
+  --color-accent: #ffb347;
+  --color-accent-bright: #ffc673;
+  --color-accent-soft: rgba(255, 179, 71, 0.13);
+  --color-accent-line: rgba(255, 179, 71, 0.34);
+  --color-on-accent: #17110a;        /* text placed on top of the accent */
+
+  /* ---------- Fonts ---------- */
+  --font-sans: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif;
+  --font-display: 'Instrument Serif', Georgia, 'Times New Roman', serif;
+  --font-mono: ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, monospace;
+
+  /* ---------- Fluid type scale ----------
+     clamp(minimum, preferred-that-scales-with-viewport, maximum)
+     means text grows smoothly between phone and desktop instead of
+     jumping at each breakpoint. */
+  --text-xs: 0.75rem;
+  --text-sm: 0.875rem;
+  --text-base: 1rem;
+  --text-md: clamp(1rem, 0.3vw + 0.94rem, 1.0625rem);
+  --text-lg: clamp(1.0625rem, 0.5vw + 0.95rem, 1.1875rem);
+  --text-xl: clamp(1.25rem, 0.9vw + 1.05rem, 1.5rem);
+  --text-2xl: clamp(1.5rem, 1.6vw + 1.1rem, 2rem);
+  --text-3xl: clamp(1.875rem, 3vw + 1.1rem, 2.875rem);
+  --text-hero: clamp(2.5rem, 7.5vw + 0.25rem, 5.25rem);
+
+  /* ---------- Spacing ---------- */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.5rem;
+  --space-6: 2rem;
+  --space-7: 2.5rem;
+  --space-8: 3rem;
+  --space-9: 4rem;
+  --space-10: 5rem;
+
+  /* Layout */
+  --container: 1120px;               /* max content width */
+  --gutter: clamp(1.25rem, 5vw, 2.5rem); /* side padding */
+  --section-y: clamp(4rem, 9vw, 7.5rem); /* vertical space per section */
+  --nav-h: 68px;                     /* height of the fixed navbar */
+
+  /* ---------- Shape ---------- */
+  --radius-sm: 8px;
+  --radius: 14px;
+  --radius-lg: 22px;
+  --radius-pill: 999px;
+
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.35);
+  --shadow-md: 0 12px 28px -12px rgba(0, 0, 0, 0.7);
+  --shadow-lg: 0 26px 60px -24px rgba(0, 0, 0, 0.85);
+
+  /* ---------- Motion ---------- */
+  --dur-fast: 160ms;
+  --dur: 260ms;
+  --dur-slow: 620ms;
+  --ease: cubic-bezier(0.22, 1, 0.36, 1); /* soft "settle" easing */
+}

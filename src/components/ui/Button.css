@@ -1,0 +1,74 @@
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+
+  /* Comfortable tap target on touch screens (44px minimum) */
+  min-height: 46px;
+  padding: 0 var(--space-5);
+
+  border: 1px solid transparent;
+  border-radius: var(--radius-pill);
+
+  font-size: var(--text-sm);
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  white-space: nowrap;
+  cursor: pointer;
+
+  background-color: transparent;
+  transition:
+    background-color var(--dur) var(--ease),
+    border-color var(--dur) var(--ease),
+    color var(--dur) var(--ease),
+    transform var(--dur) var(--ease),
+    box-shadow var(--dur) var(--ease);
+}
+
+.button:hover {
+  transform: translateY(-2px);
+}
+
+.button:active {
+  transform: translateY(0);
+}
+
+/* ---------- Solid accent ---------- */
+
+.button--primary {
+  background-color: var(--color-accent);
+  color: var(--color-on-accent);
+}
+
+.button--primary:hover {
+  background-color: var(--color-accent-bright);
+  box-shadow: 0 10px 26px -12px var(--color-accent);
+}
+
+/* ---------- Outlined ---------- */
+
+.button--outline {
+  border-color: var(--color-border-strong);
+  color: var(--color-text);
+}
+
+.button--outline:hover {
+  border-color: var(--color-accent);
+  color: var(--color-accent);
+  background-color: var(--color-accent-soft);
+}
+
+/* ---------- Text only ---------- */
+
+.button--quiet {
+  padding: 0;
+  min-height: 0;
+  color: var(--color-text-muted);
+  font-weight: 500;
+}
+
+.button--quiet:hover {
+  color: var(--color-accent);
+  transform: none;
+}

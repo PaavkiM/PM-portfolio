@@ -1,0 +1,97 @@
+.contact__panel {
+  position: relative;
+  overflow: hidden;
+
+  padding: clamp(1.75rem, 5vw, 3.5rem);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  background-color: var(--color-bg-soft);
+
+  /* A soft accent glow in the top-left corner of the panel */
+  background-image: radial-gradient(
+    80% 100% at 0% 0%,
+    var(--color-accent-soft),
+    transparent 60%
+  );
+}
+
+.contact__heading {
+  max-width: 24ch;
+  margin-top: var(--space-4);
+  font-size: var(--text-3xl);
+}
+
+.contact__blurb {
+  max-width: 56ch;
+  margin-top: var(--space-4);
+  color: var(--color-text-muted);
+  font-size: var(--text-lg);
+}
+
+.contact__actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-4);
+  margin-top: clamp(1.75rem, 3vw, 2.25rem);
+}
+
+.contact__email {
+  font-family: var(--font-mono);
+  font-size: var(--text-sm);
+  color: var(--color-text-dim);
+  /* Stops a long email address overflowing on small phones */
+  overflow-wrap: anywhere;
+}
+
+/* ---------- Social links ---------- */
+
+.contact__links {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(200px, 100%), 1fr));
+  gap: var(--space-3);
+
+  margin-top: clamp(2rem, 4vw, 3rem);
+  padding-top: clamp(1.5rem, 3vw, 2rem);
+  border-top: 1px solid var(--color-border);
+}
+
+.contact__links a {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+
+  padding: var(--space-4);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  background-color: rgba(255, 255, 255, 0.015);
+
+  transition:
+    border-color var(--dur) var(--ease),
+    background-color var(--dur) var(--ease),
+    transform var(--dur) var(--ease);
+}
+
+.contact__links a:hover {
+  border-color: var(--color-accent-line);
+  background-color: var(--color-accent-soft);
+  transform: translateY(-3px);
+}
+
+.contact__link-label {
+  font-size: var(--text-sm);
+  font-weight: 600;
+}
+
+.contact__link-handle {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  color: var(--color-text-dim);
+  overflow-wrap: anywhere;
+}
+
+@media (hover: none) {
+  .contact__links a:hover {
+    transform: none;
+  }
+}

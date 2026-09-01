@@ -1,0 +1,50 @@
+.card {
+  position: relative;
+  padding: clamp(1.4rem, 2.6vw, 2rem);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  background-color: var(--color-surface);
+  overflow: hidden;
+
+  transition:
+    border-color var(--dur) var(--ease),
+    background-color var(--dur) var(--ease),
+    transform var(--dur) var(--ease),
+    box-shadow var(--dur) var(--ease);
+}
+
+/* A thin accent line that wipes across the top edge on hover */
+.card--interactive::before {
+  content: '';
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--color-accent),
+    transparent
+  );
+  opacity: 0;
+  transition: opacity var(--dur) var(--ease);
+}
+
+.card--interactive:hover {
+  border-color: var(--color-border-strong);
+  background-color: var(--color-surface-hover);
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+}
+
+.card--interactive:hover::before {
+  opacity: 1;
+}
+
+/* Touch devices have no hover, so remove the lift to avoid a
+   card getting stuck in the hovered state after a tap. */
+@media (hover: none) {
+  .card--interactive:hover {
+    transform: none;
+    box-shadow: none;
+  }
+}

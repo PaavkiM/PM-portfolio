@@ -1,0 +1,21 @@
+.skills__grid {
+  display: grid;
+  gap: var(--space-4);
+
+  /* auto-fit + minmax is the whole responsive trick here: the browser
+     fits as many 340px-or-wider columns as will comfortably fit, so this
+     needs no media queries at all. 340px gives one column on phones and
+     two from tablet upwards, which lays four skill groups out as a tidy
+     2x2 instead of leaving one card stranded on its own row. */
+  grid-template-columns: repeat(auto-fit, minmax(min(340px, 100%), 1fr));
+}
+
+.skills__title {
+  font-size: var(--text-xl);
+}
+
+.skills__description {
+  margin-block: var(--space-2) var(--space-5);
+  color: var(--color-text-muted);
+  font-size: var(--text-sm);
+}

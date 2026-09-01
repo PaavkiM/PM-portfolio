@@ -1,0 +1,31 @@
+{
+  "compilerOptions": {
+    /* Which JavaScript version to target and which built-in APIs exist */
+    "target": "ES2022",
+    "lib": ["ES2022", "DOM", "DOM.Iterable"],
+
+    /* Vite handles the bundling, so TypeScript only type-checks */
+    "module": "ESNext",
+    "moduleResolution": "bundler",
+    "moduleDetection": "force",
+    "noEmit": true,
+    "isolatedModules": true,
+    "resolveJsonModule": true,
+    "types": ["vite/client"],
+
+    /* Lets you write JSX without importing React in every file */
+    "jsx": "react-jsx",
+
+    /* Catches real mistakes (null checks, wrong types) */
+    "strict": true,
+
+    /* Left off on purpose: an unused variable while you are experimenting
+       should not break `npm run build` and your deployment. */
+    "noUnusedLocals": false,
+    "noUnusedParameters": false,
+
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true
+  },
+  "include": ["src", "vite.config.ts"]
+}

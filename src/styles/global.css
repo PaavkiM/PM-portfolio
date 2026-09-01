@@ -1,0 +1,245 @@
+/* ============================================================
+   GLOBAL STYLES
+   ============================================================
+   1. Reset       - removes inconsistent browser defaults
+   2. Base        - body, typography, links
+   3. Layout      - .container, section spacing
+   4. Reveal      - the scroll-in animation
+   5. Utilities   - a few small reusable helpers
+   ============================================================ */
+
+/* ---------- 1. Reset ---------- */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+}
+
+img,
+svg,
+video {
+  display: block;
+  max-width: 100%;
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+  color: inherit;
+}
+
+ul,
+ol {
+  list-style: none;
+  padding: 0;
+}
+
+/* ---------- 2. Base ---------- */
+
+html {
+  /* Smooth scrolling for the navbar anchor links */
+  scroll-behavior: smooth;
+  /* Stops the fixed navbar from covering a section heading
+     when you jump to it with an anchor link */
+  scroll-padding-top: calc(var(--nav-h) + 16px);
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  min-height: 100vh;
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-sans);
+  font-size: var(--text-md);
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+
+  /* A very soft accent glow at the top of the page, plus a subtle
+     dot grid. Both are pure CSS, no image files needed. */
+  background-image:
+    radial-gradient(
+      110% 60% at 50% -10%,
+      var(--color-accent-soft) 0%,
+      transparent 60%
+    ),
+    radial-gradient(circle at 1px 1px, rgba(255, 255, 255, 0.045) 1px, transparent 0);
+  background-size: 100% 100%, 34px 34px;
+  background-repeat: no-repeat, repeat;
+  background-attachment: scroll, fixed;
+}
+
+/* Stops the page shifting sideways when the mobile menu locks scrolling */
+body.is-menu-open {
+  overflow: hidden;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-weight: 600;
+  line-height: 1.12;
+  letter-spacing: -0.02em;
+  text-wrap: balance;
+}
+
+p {
+  text-wrap: pretty;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* Keyboard users must always be able to see where they are */
+:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 3px;
+  border-radius: var(--radius-sm);
+}
+
+::selection {
+  background-color: var(--color-accent);
+  color: var(--color-on-accent);
+}
+
+/* A tidy dark scrollbar to match the theme */
+* {
+  scrollbar-color: #2b323b var(--color-bg);
+  scrollbar-width: thin;
+}
+
+/* ---------- 3. Layout ---------- */
+
+/* Centres content and keeps a comfortable side margin on every screen */
+.container {
+  width: 100%;
+  max-width: var(--container);
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+
+/* Base spacing for every <section> on the page */
+.section {
+  position: relative;
+  padding-block: var(--section-y);
+  /* Anchor links land below the fixed navbar */
+  scroll-margin-top: var(--nav-h);
+}
+
+/* Thin hairline used between sections */
+.section--bordered {
+  border-top: 1px solid var(--color-border);
+}
+
+/* Small uppercase label that sits above a section heading */
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+}
+
+.eyebrow::before {
+  content: '';
+  width: 22px;
+  height: 1px;
+  background-color: var(--color-accent-line);
+}
+
+/* Serif italic used to highlight one phrase inside a heading */
+.accent-serif {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 400;
+  letter-spacing: 0;
+  color: var(--color-accent);
+}
+
+/* ---------- 4. Scroll reveal ---------- */
+
+/* Any element with data-reveal starts slightly faded and lower down,
+   then the useScrollReveal hook adds .is-revealed when it scrolls
+   into view. Set --reveal-delay to stagger a group of items. */
+[data-reveal] {
+  opacity: 0;
+  transform: translateY(18px);
+  transition:
+    opacity var(--dur-slow) var(--ease),
+    transform var(--dur-slow) var(--ease);
+  transition-delay: var(--reveal-delay, 0ms);
+}
+
+[data-reveal].is-revealed {
+  opacity: 1;
+  transform: none;
+}
+
+/* ---------- 5. Utilities ---------- */
+
+/* Visible only to screen readers */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* A link that lets keyboard users jump straight to the content */
+.skip-link {
+  position: absolute;
+  top: var(--space-3);
+  left: var(--space-3);
+  z-index: 200;
+  padding: var(--space-2) var(--space-4);
+  border-radius: var(--radius-sm);
+  background-color: var(--color-accent);
+  color: var(--color-on-accent);
+  font-size: var(--text-sm);
+  font-weight: 600;
+  transform: translateY(-200%);
+  transition: transform var(--dur) var(--ease);
+}
+
+.skip-link:focus-visible {
+  transform: translateY(0);
+}
+
+/* ---------- Respect "reduce motion" system setting ---------- */
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  [data-reveal] {
+    opacity: 1;
+    transform: none;
+  }
+}

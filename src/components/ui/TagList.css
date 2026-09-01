@@ -1,0 +1,35 @@
+.tag-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+}
+
+.tag {
+  padding: 0.3rem 0.7rem;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-pill);
+
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  letter-spacing: 0.02em;
+  color: var(--color-text-muted);
+
+  transition:
+    border-color var(--dur) var(--ease),
+    color var(--dur) var(--ease),
+    background-color var(--dur) var(--ease);
+}
+
+.tag:hover {
+  border-color: var(--color-accent-line);
+  color: var(--color-accent);
+}
+
+.tag-list--solid .tag {
+  background-color: rgba(255, 255, 255, 0.035);
+  color: var(--color-text);
+}
+
+.tag-list--solid .tag:hover {
+  background-color: var(--color-accent-soft);
+}
