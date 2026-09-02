@@ -86,7 +86,7 @@ export const profile = {
    * Text wrapped in {curly braces} would render in the accent serif font.
    * There are no braces here, so this shows as plain text.
    */
-  headline: 'Paavki',
+  headline: 'Paavki Mahajan',
 
   /** The subtitle shown directly underneath the headline. */
   intro: 'Computer Science & Statistics Student',
@@ -233,9 +233,9 @@ export const education: EducationEntry[] = [
 
 export const contact = {
   /** The {braces} part is styled in the accent serif font. */
-  heading: 'Let us build {something} together.',
+  heading: 'Lets {connect}',
   blurb:
-    'I am currently looking for a software development internship or placement. If you think I could be useful to your team, or you just want to talk about a project, my inbox is open.',
+    'I am currently looking for a AI/Data Analysis internships.',
   /** Text shown on the main button. */
   ctaLabel: 'Send me an email',
 }
