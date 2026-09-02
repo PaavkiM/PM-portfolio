@@ -98,7 +98,7 @@ export const profile = {
   availability: 'Looking for 2027 internships',
 
   /** Your email address. */
-  email: 'paavkim07@gmail.com',
+  email: 'p@gmail.com',
 
   /**
    * Your CV. Undefined for now, so the "Download CV" button is hidden
