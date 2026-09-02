@@ -52,7 +52,6 @@ instantly.
 
 **`src/data/portfolio.ts`** holds all of the site's content: your name, the
 hero headline, your about text, skills, projects, education and links.
-Everything currently marked `[PLACEHOLDER]` is sample text.
 
 Edit that one file and the whole site updates. You do not need to touch any
 component code to change what the site says.

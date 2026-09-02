@@ -42,7 +42,7 @@ export default function Projects() {
           Things I have <em className="accent-serif">designed and built</em>
         </>
       }
-      intro="A mix of personal projects and university coursework. Each one taught me something I could not have learned from a tutorial."
+      intro="Projects I've built to apply what I'm learning in computer science and statistics. Each one taught me something I could not have learned from a tutorial."
     >
       <div className="projects__grid">
         {projects.map((project, index) => (

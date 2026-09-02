@@ -3,12 +3,11 @@
    ============================================================
    This is the ONLY file you need to edit to personalise the site.
 
-   Everything marked [PLACEHOLDER] is fake sample text - replace it
-   with your real details. You can add or remove items from any list
-   and the page will adjust automatically.
+   You can add or remove items from any list and the page will
+   adjust automatically.
 
-   The `type` blocks above each section just describe the shape of
-   the data so TypeScript can warn you if you mistype a field name.
+   The `type` blocks below describe the shape of the data so
+   TypeScript can warn you if you mistype or forget a field name.
    ============================================================ */
 
 /* ---------- Shapes (you rarely need to change these) ---------- */
@@ -46,7 +45,11 @@ export type Project = {
   /** Technologies shown as pills at the bottom of the card. */
   tech: string[]
   year: string
-  /** Optional links. Delete a line to hide that button. */
+  /**
+   * Optional links. These are used directly as the link address, so they
+   * must be real URLs starting with https:// - delete the line entirely
+   * to hide that button instead of writing a note in it.
+   */
   liveUrl?: string
   repoUrl?: string
   /** Set true for the one project you most want people to read first. */
@@ -69,60 +72,58 @@ export type EducationEntry = {
    ============================================================ */
 
 export const profile = {
-  /** [PLACEHOLDER] Your full name. */
-  name: 'Your Name',
+  /** Your full name. */
+  name: 'Paavki Mahajan',
 
-  /** [PLACEHOLDER] Your initials - shown as the logo in the navbar. */
+  /** Your initials - shown as the logo in the navbar. */
   initials: 'PM',
 
-  /** [PLACEHOLDER] Your title, e.g. "Computer Science Student". */
-  role: 'Computer Science Student',
+  /** Your title, e.g. "Computer Science Student". */
+  role: 'Computer Science and Statistics Student',
 
   /**
-   * [PLACEHOLDER] The big hero headline.
-   * The text you wrap in {curly braces} is styled in the accent serif
-   * font, so pick one or two words to emphasise.
+   * The big hero headline - just your name.
+   * Text wrapped in {curly braces} would render in the accent serif font.
+   * There are no braces here, so this shows as plain text.
    */
-  headline: 'I build {thoughtful} software for the web.',
+  headline: 'Paavki',
 
-  /** [PLACEHOLDER] One or two sentences under the headline. */
-  intro:
-    'Final-year computer science student focused on front-end engineering and clean, accessible interfaces. Currently looking for a software development internship where I can learn from an experienced team and ship real features.',
+  /** The subtitle shown directly underneath the headline. */
+  intro: 'Computer Science & Statistics Student',
 
-  /** [PLACEHOLDER] City, Country. */
-  location: 'Your City, Country',
+  /** City, Country. */
+  location: 'Mississauga, Canada',
 
-  /** [PLACEHOLDER] Short availability note shown as a badge in the hero. */
-  availability: 'Available for 2026 internships',
+  /** Short availability note shown as a badge in the hero. */
+  availability: 'Looking for 2027 internships',
 
-  /** [PLACEHOLDER] Your email address. */
-  email: 'your.email@example.com',
+  /** Your email address. */
+  email: 'paavkim07@gmail.com',
 
   /**
-   * [PLACEHOLDER] Your CV.
-   * Put a file called `resume.pdf` in the `public/` folder, then this
-   * link will work both locally and once deployed.
-   * Set to undefined to hide the "Download CV" button.
+   * Your CV. Undefined for now, so the "Download CV" button is hidden
+   * and there is no broken link.
+   * To switch it back on: put a file called `resume.pdf` in the
+   * `public/` folder and change this line to `resumeUrl: 'resume.pdf',`
    */
-  resumeUrl: 'resume.pdf',
+  resumeUrl: undefined,
 } as const
 
 /* ============================================================
    2. SOCIAL LINKS  - shown in the hero, contact section and footer
+   ------------------------------------------------------------
+   Every entry needs a real `href`. To add LinkedIn back, copy the
+   GitHub block and use your profile URL, for example:
+     { label: 'LinkedIn',
+       href: 'https://www.linkedin.com/in/your-profile',
+       handle: 'Paavki Mahajan' },
    ============================================================ */
 
 export const socialLinks: SocialLink[] = [
   {
     label: 'GitHub',
-    // [PLACEHOLDER] Replace with your GitHub profile URL.
-    href: 'https://github.com/your-username',
-    handle: '@your-username',
-  },
-  {
-    label: 'LinkedIn',
-    // [PLACEHOLDER] Replace with your LinkedIn profile URL.
-    href: 'https://www.linkedin.com/in/your-profile',
-    handle: '/in/your-profile',
+    href: 'https://github.com/PaavkiM',
+    handle: '@PaavkiM',
   },
   {
     label: 'Email',
@@ -151,26 +152,24 @@ export const navLinks: NavLink[] = [
    ============================================================ */
 
 export const about = {
-  /** [PLACEHOLDER] Each string becomes its own paragraph. */
+  /** Each string becomes its own paragraph. */
   paragraphs: [
-    'I am a computer science student who enjoys the part of software where design and engineering meet: turning a rough idea into an interface that feels obvious to use. Most of what I know comes from building small projects end to end and rewriting them until they feel right.',
-    'My current focus is modern front-end development with React and TypeScript, alongside the fundamentals my degree covers - data structures, databases and version control. I care about readable code, sensible naming and interfaces that still work on a five-year-old phone.',
-    'Outside of coursework I am usually working through a side project, reading about accessibility, or helping classmates debug their assignments, which has taught me more about explaining technical ideas than any module has.',
+    'I am a computer science student who enjoys learning about data analysis and artificial intelligence.',
+    'My current focus is on artificial intelligence and learning how it works on the backend.',
+    'Outside of university, I play badminton, work on small creative projects, and travel.',
   ],
 
-  /** [PLACEHOLDER] Small facts shown in a list beside the text. */
+  /** Small facts shown in a list beside the text. */
   facts: [
-    { label: 'Focus', value: 'Front-end engineering' },
-    { label: 'Learning', value: 'Testing & CI/CD' },
-    { label: 'Languages', value: 'English, [Other]' },
-    { label: 'Open to', value: 'Internships, placements' },
+    { label: 'Focus', value: 'Artificial Intelligence' },
+    { label: 'Languages', value: 'English, Hindi' },
   ],
 
-  /** [PLACEHOLDER] Numbers shown in the hero. Keep these honest. */
+  /** Numbers shown in the hero. Keep these honest. */
   stats: [
-    { value: '3rd', label: 'Year of study' },
-    { value: '6+', label: 'Projects built' },
-    { value: '5', label: 'Languages used' },
+    { value: '2nd', label: 'Year of study' },
+    { value: '1', label: 'Project built' },
+    { value: '3', label: 'Languages used' },
   ] satisfies Stat[],
 }
 
@@ -183,23 +182,8 @@ export const about = {
 export const skillGroups: SkillGroup[] = [
   {
     title: 'Languages',
-    description: 'The core languages I write day to day.',
-    skills: ['TypeScript', 'JavaScript', 'HTML', 'CSS', 'Python', 'SQL'],
-  },
-  {
-    title: 'Front-end',
-    description: 'Building interfaces that are responsive and accessible.',
-    skills: ['React', 'Vite', 'Responsive design', 'Flexbox & Grid', 'Accessibility (WCAG)'],
-  },
-  {
-    title: 'Tools & workflow',
-    description: 'How I build, version and ship my work.',
-    skills: ['Git & GitHub', 'VS Code', 'npm', 'GitHub Actions', 'Figma'],
-  },
-  {
-    title: 'Foundations',
-    description: 'Concepts from my degree that I apply in projects.',
-    skills: ['Data structures', 'Algorithms', 'OOP', 'Relational databases', 'REST APIs'],
+    description: 'The coding languages I know.',
+    skills: ['JavaScript', 'HTML', 'Python'],
   },
 ]
 
@@ -212,33 +196,16 @@ export const skillGroups: SkillGroup[] = [
 
 export const projects: Project[] = [
   {
-    title: '[PLACEHOLDER] Project One',
-    summary: 'A short, concrete one-liner about what this project does.',
+    title: 'Spending Tracker',
+    summary: 'Tracks expenses in different categories.',
     description:
-      'Explain the problem you set out to solve, the approach you took and one thing that was genuinely difficult. Two or three sentences is plenty - recruiters skim. Finish with a result if you have one, such as a performance improvement or a number of users.',
-    tech: ['React', 'TypeScript', 'CSS'],
-    year: '2025',
-    liveUrl: 'https://example.com',
-    repoUrl: 'https://github.com/your-username/project-one',
+      'My family needed a way to keep track of all monthly expenses but something that was custom to the things we spend money on every month. I built this tracker so that we could keep track of our expenses in every category.',
+    tech: ['Flask', 'HTML', 'Python'],
+    year: '2026',
+    // No links yet. When the project is ready, add real URLs here:
+    //   liveUrl: 'https://...',
+    //   repoUrl: 'https://github.com/PaavkiM/...',
     featured: true,
-  },
-  {
-    title: '[PLACEHOLDER] Project Two',
-    summary: 'What it does, in plain language and without buzzwords.',
-    description:
-      'Describe the scope and what you personally built, especially if it was a group assignment. Mentioning a trade-off you made shows judgement, which is what an interviewer is actually looking for.',
-    tech: ['Python', 'SQLite', 'Tkinter'],
-    year: '2025',
-    repoUrl: 'https://github.com/your-username/project-two',
-  },
-  {
-    title: '[PLACEHOLDER] Project Three',
-    summary: 'A smaller project or a university coursework piece.',
-    description:
-      'Even a coursework project is worth listing if you can say what you learned from it. Note the grade only if it was strong, and say which parts of the code were yours.',
-    tech: ['JavaScript', 'HTML', 'CSS'],
-    year: '2024',
-    liveUrl: 'https://example.com',
   },
 ]
 
@@ -248,26 +215,14 @@ export const projects: Project[] = [
 
 export const education: EducationEntry[] = [
   {
-    institution: '[PLACEHOLDER] University Name',
-    qualification: 'BSc (Hons) Computer Science',
-    period: '2023 — 2026',
-    location: 'Your City, Country',
-    result: 'Predicted: [Your grade]',
+    institution: 'University of Toronto',
+    qualification: 'Bachelor of Computer Science and Statistics',
+    period: '2025 — present',
+    location: 'Mississauga, Ontario',
+    // Add a grade line when you have one, for example:
+    //   result: 'GPA: 3.8',
     highlights: [
-      'Relevant modules: Software Engineering, Web Development, Databases, Algorithms.',
-      'Final-year project: [PLACEHOLDER] one line on your dissertation or capstone.',
-      'Member of [PLACEHOLDER] society / coding club / hackathon team.',
-    ],
-  },
-  {
-    institution: '[PLACEHOLDER] School or College Name',
-    qualification: 'A-Levels / High School Diploma',
-    period: '2021 — 2023',
-    location: 'Your City, Country',
-    result: 'Grades: [Your grades]',
-    highlights: [
-      'Subjects: Mathematics, Computer Science, Physics.',
-      '[PLACEHOLDER] An award, prize or leadership role worth mentioning.',
+      'Member of the Desi Student Association, UofT AI, UTM Society of Math, CS and Statistics and UTM Volunteam',
     ],
   },
 ]
@@ -281,7 +236,7 @@ export const contact = {
   heading: 'Let us build {something} together.',
   blurb:
     'I am currently looking for a software development internship or placement. If you think I could be useful to your team, or you just want to talk about a project, my inbox is open.',
-  /** [PLACEHOLDER] Text shown on the main button. */
+  /** Text shown on the main button. */
   ctaLabel: 'Send me an email',
 }
 
@@ -290,6 +245,6 @@ export const contact = {
    ============================================================ */
 
 export const footer = {
-  /** [PLACEHOLDER] A short sign-off line. */
+  /** A short sign-off line. */
   note: 'Designed and built from scratch with React, TypeScript and CSS.',
 }

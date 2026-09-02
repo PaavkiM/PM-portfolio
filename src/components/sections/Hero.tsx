@@ -41,11 +41,7 @@ export default function Hero() {
         </div>
 
         <div className="hero__meta" data-reveal style={revealDelay(300)}>
-          <p className="hero__role">
-            {profile.role}
-            <span aria-hidden="true"> · </span>
-            {profile.location}
-          </p>
+          <p className="hero__role">{profile.location}</p>
 
           <ul className="hero__socials">
             {socialLinks.map((social) => (
